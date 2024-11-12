@@ -16,7 +16,7 @@ namespace HelloCube
         [BurstCompile]
         public void OnUpdate(ref SystemState state)
         {
-            foreach (var (transform, speed) in 
+            foreach (var (transform, speed) in
                      SystemAPI.Query<RefRW<LocalTransform>, RefRO<RotateSpeed>>())
             {
                 transform.ValueRW = transform.ValueRW.RotateY(speed.ValueRO.Value * SystemAPI.Time.DeltaTime);

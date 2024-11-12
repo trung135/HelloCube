@@ -1,6 +1,6 @@
 using Unity.Entities;
 
-public struct RotateSpeed : IComponentData
+public struct RotateSpeed : IComponentData, IEnableableComponent
 {
     public float Value;
 }

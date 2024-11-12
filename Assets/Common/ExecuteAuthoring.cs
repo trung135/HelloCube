@@ -8,6 +8,7 @@ public class ExecuteAuthoring : MonoBehaviour
     public bool IAspect;
     public bool Prefab;
     public bool Reparenting;
+    public bool EnableComponent;
     private class ExecuteAuthoringBaker : Baker<ExecuteAuthoring>
     {
         public override void Bake(ExecuteAuthoring authoring)
@@ -18,6 +19,7 @@ public class ExecuteAuthoring : MonoBehaviour
             if (authoring.IAspect) AddComponent<IAspectExecute>(entity);
             if (authoring.Prefab) AddComponent<PrefabExecute>(entity);
             if (authoring.Reparenting) AddComponent<ReparentingExecute>(entity);
+            if (authoring.EnableComponent) AddComponent<EnableComponentExecute>(entity);
         }
     }
 }
@@ -27,3 +29,4 @@ public struct IJobEntityExecute : IComponentData {}
 public struct IAspectExecute : IComponentData {}
 public struct PrefabExecute : IComponentData {}
 public struct ReparentingExecute : IComponentData {}
+public struct EnableComponentExecute : IComponentData {}

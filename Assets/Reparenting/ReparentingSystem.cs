@@ -2,7 +2,6 @@ using Unity.Burst;
 using Unity.Collections;
 using Unity.Entities;
 using Unity.Transforms;
-using UnityEngine;
 
 namespace HelloCube
 {
@@ -11,7 +10,6 @@ namespace HelloCube
         const float Interval = 1f;
         private float _timer;
         private bool _attached;
-        
         
         [BurstCompile]
         public void OnCreate(ref SystemState state)

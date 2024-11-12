@@ -212,10 +212,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40c01635227744bb8338d9b45d8ccfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainthread: 0
-  ijobentity: 0
-  iaspect: 0
-  prefab: 1
+  MainThread: 0
+  IJobEntity: 0
+  IAspect: 0
+  Prefab: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

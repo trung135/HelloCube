@@ -3,19 +3,21 @@ using UnityEngine;
 
 public class ExecuteAuthoring : MonoBehaviour
 {
-    public bool mainthread;
-    public bool ijobentity;
-    public bool iaspect;
-    public bool prefab;
+    public bool MainThread;
+    public bool IJobEntity;
+    public bool IAspect;
+    public bool Prefab;
+    public bool Reparenting;
     private class ExecuteAuthoringBaker : Baker<ExecuteAuthoring>
     {
         public override void Bake(ExecuteAuthoring authoring)
         {
             Entity entity = GetEntity(TransformUsageFlags.None);
-            if (authoring.mainthread) AddComponent<MainThreadExecute>(entity);
-            if (authoring.ijobentity) AddComponent<IJobEntityExecute>(entity);
-            if (authoring.iaspect) AddComponent<IAspectExecute>(entity);
-            if (authoring.prefab) AddComponent<PrefabExecute>(entity);
+            if (authoring.MainThread) AddComponent<MainThreadExecute>(entity);
+            if (authoring.IJobEntity) AddComponent<IJobEntityExecute>(entity);
+            if (authoring.IAspect) AddComponent<IAspectExecute>(entity);
+            if (authoring.Prefab) AddComponent<PrefabExecute>(entity);
+            if (authoring.Reparenting) AddComponent<ReparentingExecute>(entity);
         }
     }
 }
@@ -24,3 +26,4 @@ public struct MainThreadExecute : IComponentData {}
 public struct IJobEntityExecute : IComponentData {}
 public struct IAspectExecute : IComponentData {}
 public struct PrefabExecute : IComponentData {}
+public struct ReparentingExecute : IComponentData {}

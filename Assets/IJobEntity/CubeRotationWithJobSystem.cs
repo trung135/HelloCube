@@ -4,7 +4,6 @@ using Unity.Transforms;
 
 namespace HelloCube
 {
-    [DisableAutoCreation]
     public partial struct CubeRotationWithJobSystem : ISystem
     {
         [BurstCompile]
@@ -17,9 +16,10 @@ namespace HelloCube
         [BurstCompile]
         public void OnUpdate(ref SystemState state)
         {
+            float deltaTime = SystemAPI.Time.DeltaTime;
             CubeRotationJob job = new CubeRotationJob
             {
-                DeltaTime = SystemAPI.Time.DeltaTime
+                DeltaTime = deltaTime
             };
             job.Schedule();
         }
@@ -30,7 +30,7 @@ namespace HelloCube
     {
         public float DeltaTime;
         
-        public void Execute(LocalTransform transform, RotateSpeed speed)
+        public void Execute(ref LocalTransform transform, in RotateSpeed speed)
         {
             transform = transform.RotateY(speed.Value * DeltaTime);
         }

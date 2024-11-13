@@ -14,7 +14,7 @@ namespace HelloCube
         public void OnCreate(ref SystemState state)
         {
             state.RequireForUpdate<EnableComponentExecute>();
-            state.RequireForUpdate<RotateSpeed>();
+            state.RequireForUpdate<EnableRotateSpeed>();
 
             _timer = Interval;
         }
@@ -27,7 +27,7 @@ namespace HelloCube
             {
                 _timer = Interval;
                 foreach (var rotateEnable in
-                         SystemAPI.Query<EnabledRefRW<RotateSpeed>>()
+                         SystemAPI.Query<EnabledRefRW<EnableRotateSpeed>>()
                              .WithOptions(EntityQueryOptions.IgnoreComponentEnabledState))
                 {
                     rotateEnable.ValueRW = !rotateEnable.ValueRO;
@@ -35,7 +35,7 @@ namespace HelloCube
             }
 
             foreach (var (transform, speed) in
-                     SystemAPI.Query<RefRW<LocalTransform>, RefRO<RotateSpeed>>())
+                     SystemAPI.Query<RefRW<LocalTransform>, RefRO<EnableRotateSpeed>>())
             {
                 transform.ValueRW = transform.ValueRW.RotateY(speed.ValueRO.Value * SystemAPI.Time.DeltaTime);
             }

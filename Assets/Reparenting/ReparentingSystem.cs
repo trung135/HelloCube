@@ -29,7 +29,7 @@ namespace HelloCube
             _timer = Interval;
             
             var ecb = new EntityCommandBuffer(Allocator.Temp);
-            Entity entityParent = SystemAPI.GetSingletonEntity<RotateSpeed>();
+            var entityParent = SystemAPI.GetSingletonEntity<RotateSpeed>();
             if (_attached)
             {
                 DynamicBuffer<Child> children = SystemAPI.GetBuffer<Child>(entityParent);

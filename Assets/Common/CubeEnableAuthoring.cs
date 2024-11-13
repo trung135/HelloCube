@@ -11,11 +11,11 @@ class CubeEnableAuthoring : MonoBehaviour
         public override void Bake(CubeEnableAuthoring authoring)
         {
             Entity entity = GetEntity(TransformUsageFlags.Dynamic);
-            AddComponent(entity, new RotateSpeed
+            AddComponent(entity, new EnableRotateSpeed
             {
                 Value = authoring.rotationSpeed
             });
-            SetComponentEnabled<RotateSpeed>(entity, authoring.enableRotation);
+            SetComponentEnabled<EnableRotateSpeed>(entity, authoring.enableRotation);
         }
     }
 }

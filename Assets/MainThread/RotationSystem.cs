@@ -4,7 +4,7 @@ using Unity.Transforms;
 
 namespace HelloCube
 {
-    public partial struct CubeRotationSystem : ISystem
+    public partial struct RotationSystem : ISystem
     {
         [BurstCompile]
         public void OnCreate(ref SystemState state)

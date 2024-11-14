@@ -9,6 +9,8 @@ public class ExecuteAuthoring : MonoBehaviour
     public bool Prefab;
     public bool Reparenting;
     public bool EnableComponent;
+    public bool GameObjectSync;
+
     private class ExecuteAuthoringBaker : Baker<ExecuteAuthoring>
     {
         public override void Bake(ExecuteAuthoring authoring)
@@ -20,6 +22,7 @@ public class ExecuteAuthoring : MonoBehaviour
             if (authoring.Prefab) AddComponent<PrefabExecute>(entity);
             if (authoring.Reparenting) AddComponent<ReparentingExecute>(entity);
             if (authoring.EnableComponent) AddComponent<EnableComponentExecute>(entity);
+            if (authoring.GameObjectSync) AddComponent<GameObjectSyncExecute>(entity);
         }
     }
 }
@@ -30,3 +33,4 @@ public struct IAspectExecute : IComponentData {}
 public struct PrefabExecute : IComponentData {}
 public struct ReparentingExecute : IComponentData {}
 public struct EnableComponentExecute : IComponentData {}
+public struct GameObjectSyncExecute : IComponentData {}

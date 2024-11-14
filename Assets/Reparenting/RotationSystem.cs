@@ -2,7 +2,7 @@ using Unity.Burst;
 using Unity.Entities;
 using Unity.Transforms;
 
-namespace HelloCube
+namespace HelloCube.Reparenting
 {
     public partial struct RotationSystem : ISystem
     {

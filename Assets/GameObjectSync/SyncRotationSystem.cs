@@ -23,8 +23,11 @@ namespace HelloCube
             foreach (var (transform, speed, cubeGO) in 
                      SystemAPI.Query<RefRW<LocalTransform>, RefRO<RotateSpeed>, CubeGameObject>())
             {
-                transform.ValueRW = transform.ValueRW.RotateY(speed.ValueRO.Value * SystemAPI.Time.DeltaTime);
-                cubeGO.Value.transform.rotation = transform.ValueRO.Rotation;
+                if (speed.ValueRO.IsRotate)
+                {
+                    transform.ValueRW = transform.ValueRW.RotateY(speed.ValueRO.Value * SystemAPI.Time.DeltaTime);
+                    cubeGO.Value.transform.rotation = transform.ValueRO.Rotation;
+                }
             }
         }
 

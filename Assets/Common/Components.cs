@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public struct RotateSpeed : IComponentData
 {
     public float Value;
+    public bool IsRotate;
 }
 
 public struct EnableRotateSpeed : IComponentData, IEnableableComponent
